@@ -1,5 +1,3 @@
-
-
 class Product
 {
         int pcode;
@@ -31,9 +29,9 @@ class Product
         
        }
       public static void main(String[] args){
-            Product obj1 = new Main();
-            Product obj2 = new Main();
-            Product obj3 = new Main();
+            Product obj1 = new Product();
+            Product obj2 = new Product();
+            Product obj3 = new Product();
             obj1.data(101,"Product_1",100.0);
             obj2.data(102,"Product_2",128.40);
             obj3.data(103,"Product_3",790.00);
