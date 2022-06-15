@@ -1,58 +1,35 @@
 import java.util.*;
-class StackArr
+public class Main
 {
-	int a[] = new int[530];
-	int top=-1,ch,item,i;
-	Scanner sc = new Scanner(System.in);
-	public void stackoperation()
+	public static void main(String args[])
 	{
-		System.out.println("Enter the limit of elements in the stack : ");
-		int n=sc.nextInt();
-		do
+		int n;
+		double res=0;
+		Scanner sc =new Scanner(System.in);
+		System.out.println("enter how many numbers to find average:");
+		n=sc.nextInt();
+		int a[]=new int[n];
+		System.out.println("enter "+n+" numbers");
+		for(int i=0;i<n;i++)
 		{
-			System.out.println("\n\t CHOICES : ");
-			System.out.println("\n 1.PUSH \n 2.POP \n 3.EXIT \n");
-			System.out.println("\n Enter your choice : ");
-			ch=sc.nextInt();	
-			switch(ch)
+			a[i]=sc.nextInt();
+			try 
 			{
-				case 1: if(top >=n-1)
-						System.out.println("stack overflow");
-					else
-					{
-						System.out.println("enter the element :");
-						item =sc.nextInt();
-						top=top+1;
-						a[top]=item;
-					}
-					break;
-					case 2: if(top<0)
-							System.out.println("stack underflow");
-						else
-						{
-							a[top]='\0';
-							top=top-1;
-						}
-						break;
-					case 3: break;
-					default: System.out.println("\n Invalid choice");
+				if (a[i]<0)
+					throw new Exception(" negative number not allowed\nENTER positive number??");
+			
+				else 
+					res+=a[i];
 			}
-			if(top < 0)
-				System.out.println("\n stack is empty");
-			else
+			catch(Exception N)
 			{
-				System.out.println("\n stack is \n");
-				for(i=top;i>=0;i--)
-					System.out.println(a[i]);
+				N.printStackTrace();
+				Scanner sc1 = new Scanner(System.in);
+				res=sc1.nextInt();
+				res+=a[i];
 			}
-		}while(ch!=3);
-	}
-}
-class Main
-{
-	public static void main(String[] args)
-	{
-		StackArr sa =new StackArr();
-		sa.stackoperation();
+		}
+		double avg = res/n;
+		System.out.println("Average is "+avg);
 	}
 }
